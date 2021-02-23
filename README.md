@@ -55,9 +55,9 @@ Client Side Code
 
 
 
-Server Side Code
+Passport Authentication
 
-
+The provided code uses an npm package called "Passport" which handles all the verification requests. Passport is an API middleware developed for use with Node.js and is Express-compatible which is also being used with our code. Using the Passport API lets us take the very complicated process of user authentication and easily integrate it into the final application. For our purposes here Passport has been set up as a "Local Strategy" which simply handles username and password credentials. Passport offers additional authentication methods with their other strategies however the local strategy is sufficient for our purposes. Passport is utilized in the passport.js file. Upon sending a login request to the passport modules checks two conditons sequentially in an if/else if statement. First it checks to see if there is a matching username stored in the database. If it does not find a matching username a message will cue an "Incorrect email" message. If the user is found the else if statement condition will be checked to make sure the user entered password matches the password stored in the database. Passport does this by using the .validPassword method defined by Passport. If the password does not match the password stored in the database the .validPassword method will return the value "false" and cue an "Incorrect Password" message. If neither of these two conditions are met the username matches a user in the database and the password given is associated with that username so the code is allowed to proceded to the next step. In this implimentation of code Passport is checking for falsiness in the username and password provided. Passport uses the .serializeUser and .deserializeUser methods in order to send data back and forth over HTTP connections. These two methods convert the objects being sent to a stream of bytes and then converts it back to something readable by the application once it is received.
 
 Public Interation
 
@@ -66,7 +66,7 @@ In order for the public to interact with this code, they are first taken to the 
 
 ## Usage 
 
-This starter code can be implemented by a number of other applications and websites. Users can access the front pages to sign up for and login to a webpage or application. The code provides a great way to authenticate the user using a password saved to a server associated with the given user.
+This starter code can be implemented by a number of other applications or websites. Users can access these pages to sign up for and login to a webpage or application. The code provides a great way to authenticate the user using a password saved to a server associated with the given user.
 
 ## Credits
 

@@ -51,7 +51,17 @@ You can find the repo on [GitHub](https://github.com/Rconat/ReverseEngineeringSe
 
 ## Explanation of Code
 
+Client Side Code
 
+
+
+Server Side Code
+
+
+
+Public Interation
+
+In order for the public to interact with this code, they are first taken to the Sign Up Page. Here the user can enter in an email address as well as a password. Upon clicking the "SIGN UP" button the user has now created an account with the application. If the user has already created an account with the application, there is a button at the bottom of the Sign Up page which will take them to a Login Page instead. The Login Page opperates almost identically to the Sign Up with the only difference being that the user must have already signed up for an account with the application. Upon completing either the Sign Up form or the Login Form, the user is taken to the members page. This page welcomes the user by name and will become the home page for the user while implemented by the application.
 
 
 ## Usage 

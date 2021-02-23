@@ -77,6 +77,8 @@ The code makes use of the Path NPM. Path is a node package manager that allows u
 
 ## Express NPM
 
+Express NPM is a Node.js web application framework. This framework is used to help develop Node based web applications. The Express framework allows us to set up middleawres that will respond to HTTP requests. Express also allows us to define our routing modules in both the api-routes.js file as well as the html-routes.js file and then using those requests we can dynamically render HTML pages client side to be used in the application. Express is mainly implimented in the server.js file however it references all of the route modules. Express is the framework that allows are client side to communicate with the server side database.
+
 ## Passport Authentication
 
 The provided code uses an npm package called "Passport" which handles all the verification requests. Passport is an API middleware developed for use with Node.js and is Express-compatible which is also being used with our code. Using the Passport API lets us take the very complicated process of user authentication and easily integrate it into the final application. For our purposes here Passport has been set up as a "Local Strategy" which simply handles username and password credentials. Passport offers additional authentication methods with their other strategies however the local strategy is sufficient for our purposes. 

@@ -4,9 +4,6 @@
 
 The purpose of this assignment is to reverse engineer the starter code provided and provide a tutorial
 
-
-The webpage is hosted on [GitHub](https://rconat.github.io/ReverseEngineeringSequelizeCode/).
-
 You can find the repo on [GitHub](https://github.com/Rconat/ReverseEngineeringSequelizeCode).
 
 ![Sign Up Layout](assets/SignUpPage.png)

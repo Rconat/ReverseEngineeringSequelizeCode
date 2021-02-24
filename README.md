@@ -6,9 +6,9 @@ The purpose of this assignment is to reverse engineer the starter code provided 
 
 You can find the repo on [GitHub](https://github.com/Rconat/ReverseEngineeringSequelizeCode).
 
-![Sign Up Layout](assets/SignUpPage.png)
-![Login Layout](assets/LoginPage.png)
-![Members Layout](assets/MembersPage.png)
+![Sign Up Layout](SignUpPage.png)
+![Login Layout](LoginPage.png)
+![Members Layout](MembersPage.png)
 
 ---
 

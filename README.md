@@ -24,6 +24,8 @@ You can find the repo on [GitHub](https://github.com/Rconat/ReverseEngineeringSe
     * [Express NPM](#Express-NPM)
     * [Passport Authentication](#Passport-Authentication)
     * [Password Hashing](#Password-Hashing)
+    * [JavaScript Libraries](#JavaScript-Libraries)
+    * [Public Files](#Public-Files)
     * [Public Interaction](#Public-Interation)
     * [Usage](#usage)
 * [Credits](#credits)
@@ -77,11 +79,11 @@ The code makes use of the Path NPM. Path is a node package manager that allows u
 
 ## Express NPM
 
-Express NPM is a Node.js web application framework. This framework is used to help develop Node based web applications. The Express framework allows us to set up middleawres that will respond to HTTP requests. Express also allows us to define our routing modules in both the api-routes.js file as well as the html-routes.js file and then using those requests we can dynamically render HTML pages client side to be used in the application. Express is mainly implimented in the server.js file however it references all of the route modules. Express is the framework that allows are client side to communicate with the server side database.
+Express NPM is a Node.js web application framework. This framework is used to help develop Node based web applications. The Express framework allows us to set up middlewares that will respond to HTTP requests. Express also allows us to define our routing modules in both the api-routes.js file as well as the html-routes.js file and then using those requests we can dynamically render HTML pages client side to be used in the application. Express is mainly implimented in the server.js file however it references all of the route modules. Express is the framework that allows are client side to communicate with the server side database.
 
 ## Passport Authentication
 
-The provided code uses an npm package called "Passport" which handles all the verification requests. Passport is an API middleware developed for use with Node.js and is Express-compatible which is also being used with our code. Using the Passport API lets us take the very complicated process of user authentication and easily integrate it into the final application. For our purposes here Passport has been set up as a "Local Strategy" which simply handles username and password credentials. Passport offers additional authentication methods with their other strategies however the local strategy is sufficient for our purposes. 
+The provided code uses an npm package called "Passport" which handles the verification requests. Passport is an API middleware developed for use with Node.js and is Express-compatible which is also being used with our code. Using the Passport API lets us take the very complicated process of user authentication and easily integrate it into the final application. For our purposes here Passport has been set up as a "Local Strategy" which simply handles username and password credentials. Passport offers additional authentication methods with their other strategies however the local strategy is sufficient for our purposes. 
 
 Passport is being utilized in the passport.js file. Upon sending a login request to the passport modules checks two conditons sequentially in an if/else if statement. First it checks to see if there is a matching username stored in the database. If it does not find a matching username a message will cue an "Incorrect email" message. If the user is found the else if statement condition will be checked to make sure the user entered password matches the password stored in the database. Passport does this by using the .validPassword method defined by Passport. If the password does not match the password stored in the database the .validPassword method will return the value "false" and cue an "Incorrect Password" message. If neither of these two conditions are met the username matches a user in the database and the password given is associated with that username so the code is allowed to proceded to the next step. In this implimentation of code Passport is checking for falsiness in the username and password provided. Passport uses the .serializeUser and .deserializeUser methods in order to send data back and forth over HTTP connections. These two methods convert the objects being sent to a stream of bytes and then converts it back to something readable by the application once it is received.
 
@@ -90,6 +92,26 @@ Passport is being utilized in the passport.js file. Upon sending a login request
 With every passing year, cyber criminals are looking for new ways to infiltrate application code in order to source the data being sent back and forth over the numerous calls and responses being utelized by online application. The security of these applications is extremely important and help solidify the trust that users have in these applicaitons while using them. Because of this it is important to use a data encryption method on any sensative information that may be being sent over the internet. For our code that has been provided the application is using the "bcrypt.js" npm to handle the hashing of the passwords being sent to and from the user and the server holding the database of information. 
 
 Bcrypt is being implimented in the user.js file. Bcrypt is doing most of this behind the scenes to keep the methods secure which further enhances the security of the application. What we can see from its use in this application is that bcrypt is taking the user provided password, making sure the provided password can be hashed and compared to the hashed password stored on the database, and then hashing the incoming user provided password BEFORE it is sent to the database. Because of the way bcrypt impliments its hashing method, the password is only hashed and unhashed on the client side. This ensures that only properly hashed (secure) password data is being sent over the web.
+
+## JavaScript Libraries
+
+For this application we have made use of both the Bootstrap and jQuery JavaScript Libraries. These libraries help simplify front end code and can streamline the functionality of the application.
+
+jQuery is a JavaScript library that helps greatly in the functionality of the JavaScript code. Using jQuery we can more easily manipulate DOM element, handle events, and send Ajax calls to our server for use on client side pages. JQuery is being implimented in the application in all three of our JavaScript files discussed below (see [Public Files](#Public-Files) for reference). 
+
+Bootstrap is a JavaScript Library and front-end framework that helps create effective layouts to be used in client side HTML files. Bootstrap helps streamline the process of creating and developing HTML that will enhance functionality and provide an easy framework for a successful UI/UX (User Interface/User eXperience). Bootstrap is utilized through predefined classes which are given to HTML elements. These classes modify these HTML elements in order to change the functionality of those elements. Much of Bootstrap also requires cooresponding JavaScript to be properly utilized.
+
+## Public Files
+
+In the code provided they have included a "public" folder which contains all the JavaScript files, HTML files, and stylesheet files which will be used client side by the application. The HTML files have been discussed earlier within the MySQL Database and Sequelize section [here](#MySQL-Database-and-Sequelize) and the Express NPM section [here](#Express-NPM). To reiterate on these HTML files our application is using Express to dynically render the HTML files for client side viewing based on the requests and responses made by our route modules within the api-routes.js and html-routes.js files. 
+
+The public JavaScript files contain the JavaScript code which runs on the rendered HTML pages. These files make use of our JavasScript Libraries which were described about (see [JavaScript Libraries](#JavaScript-Libraries) for reference). The JavaScript files in the "public" folder also contain all of the Ajax calls being made to the server which can then be used by our front end code. 
+
+The login.js file using jQuery to manipulate the DOM elements is taking in the user inputed data and running the loginUser() function using the email and password provided by the user as parameters. The loginUser() function runs an Ajax POST request call to the server to find the associated user data in the server. This POST call runs through the api-routes.js for authenticaion.
+
+The members.js file is doing an Ajax GET request call to the server through the api-routes.js module adn returning the data containing the username(email). This data is then simply displayed at the top of the page with some welcome text.
+
+The signup.js file uses jQuery to manipulate the DOM input provided by the user in the same was that the login.js script but instead of running the loginUser() function, it invokes the signUpUser() function taking in the username(email) and password as parameters. The function does an Ajax call to the server through the api-routes.js module and if successful will navigate the user to the /members page. If the function is not successful the .catch() method will invoke the handleLoginErr() function and return an alert message with the "err.responseJSON" data as well as a "500" error message.
 
 ## Public Interation
 
